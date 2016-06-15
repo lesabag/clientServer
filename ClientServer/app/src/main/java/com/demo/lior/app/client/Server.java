@@ -9,6 +9,9 @@ import java.net.Socket;
  * Created by app on 15/06/2016.
  */
 public class Server {
+
+    private static int PORT = 7000;
+
     public static void main(String[] args) {
 
         Thread t  = new Thread(){
@@ -18,7 +21,7 @@ public class Server {
             {
                 System.out.println("Server is running and listening ...");
                 try {
-                    ServerSocket ss = new ServerSocket(7000);
+                    ServerSocket ss = new ServerSocket(PORT);
                     while (true) {
                         Socket s = ss.accept();
                         DataInputStream dis = new DataInputStream(s.getInputStream());

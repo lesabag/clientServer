@@ -22,6 +22,8 @@ public class ClientActivity extends Activity  {
     EditText etMessage;
     Button bSend;
     Context context;
+    private int PORT = 7000;
+    private String IP = "x.x.x.x";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class ClientActivity extends Activity  {
                     public void run()
                     {
                         try {
-                            Socket s = new Socket(InetAddress.getByName ("10.0.0.2"), 7000);// connect to Emulator us IP: 10.0.2.2 // On a real device you need to set setprop service.adb.tcp.port 5555
+                            Socket s = new Socket(InetAddress.getByName (IP), PORT);// connect to Emulator us IP: 10.0.2.2 // On a real device you need to set setprop service.adb.tcp.port 5555
                             System.out.println("In run");
                             DataOutputStream dos = new DataOutputStream(s.getOutputStream());
                             dos.writeUTF(etMessage.getText().toString());
